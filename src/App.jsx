@@ -1,34 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import MovieCard from "./components/MovieCard/MovieCard"
+
+const MOVIES = [
+  {title:"La comunidad del Anillo",
+  poster:"https://th.bing.com/th/id/R.800a59c55f866d8e6e249eb545258936?rik=FIsVV9PICDNmhQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-0REq_eGpZ-8%2fTbKeVe2wBrI%2fAAAAAAAAA7w%2fe4cmju2h6N4%2fs1600%2fThe_Lord_of_the_Rings_The_Fellowship_of_the_Ring_6426d3da.jpg&ehk=%2fQg9Zmov8u6XObLJI4WNM864C6kiIXojaPrZGZusCzs%3d&risl=&pid=ImgRaw&r=0"
+},
+{title: "Harry Potter y la Cámara de los secretos",
+  poster: "https://th.bing.com/th/id/OIP.pQLi58iyY-Eqxvv1sHewwwAAAA?pid=ImgDet&rs=1"
+},
+{title:"Harry Potter y el Prisionero de Azkaban",
+  poster: "https://infoforumworld.files.wordpress.com/2020/04/r6sqepunmkhlbnx8cizvzxckhp.jpg"
+},
+{title:"500 días con ella",
+  poster:"https://th.bing.com/th/id/OIP.2cxy9LNDiwTfF8z3oSMjAwHaLH?pid=ImgDet&rs=1"
+},
+]
 
 function App() {
 
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>{103 + 15}</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap'
+    }}>
+      <MovieCard movie={MOVIES[1]}/>
+      <MovieCard movie={MOVIES[1]}/>
+      <MovieCard movie={MOVIES[2]}/>
+      <MovieCard movie={MOVIES[3]}/>
+    </div>
     </>
   )
 }
