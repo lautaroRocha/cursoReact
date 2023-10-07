@@ -1,4 +1,6 @@
 import './App.css'
+import {useEffect, useState} from 'react'
+import MovieContainer from "./components/MovieContainer/MovieContainer"
 import MovieCard from "./components/MovieCard/MovieCard"
 
 const MOVIES = [
@@ -16,19 +18,26 @@ const MOVIES = [
 },
 ]
 
+
 function App() {
+
+  const [movies, setMovies] = useState([]);
+  const [favMovies, setFavMovies] = useState([]);
+
+  useEffect( () => {
+    setTimeout(()=>{
+      setMovies(MOVIES)
+    }, 3000)
+  }, [])
 
   return (
     <>
-    <div style={{
-      display: 'flex',
-      flexWrap: 'wrap'
-    }}>
-      <MovieCard movie={MOVIES[1]}/>
-      <MovieCard movie={MOVIES[1]}/>
-      <MovieCard movie={MOVIES[2]}/>
-      <MovieCard movie={MOVIES[3]}/>
-    </div>
+      <MovieContainer>
+        {
+          !movies.length ? 'Cargando películas...' : 
+          movies.map( (movie) => <MovieCard movie={movie} isFav={false}/>)
+        }
+      </MovieContainer>
     </>
   )
 }
