@@ -1,17 +1,18 @@
 import style from "./movieCard.module.css"
-import { useState } from "react"
 
-function MovieCard ({movie}) {
-    const {title, poster} = movie
-    const [isFav, setIsFav] = useState(false)
+const POSTER_PATH = 'https://www.themoviedb.org/t/p/w220_and_h330_face'
+
+
+function MovieCard ({movie, isFav, toogleFav}) {
+    const {title, poster_path, id} = movie
     
     return(
         <div className={style.card}>
-            <img src={poster} alt="poster de la película" />
+            <img src={POSTER_PATH + poster_path} alt="poster de la película" />
             <h2>{title}</h2>
-            <button className={isFav ? '' : style['fav']}
-            onClick={()=>{setIsFav(!isFav)}}>
-                {isFav ? 'Quitar de favoritos' : 'Añadir a favoritos'}
+            <button className={isFav(id) ? '' : style['fav']}
+            onClick={()=>{toogleFav(movie)}}>
+                {isFav(id) ? 'Quitar de favoritos' : 'Añadir a favoritos'}
             </button>
         </div>
     )
