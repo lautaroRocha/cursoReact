@@ -43,3 +43,10 @@ const App = () => {
 
 
 ```
+
+
+### Otros hooks 
+ - useRef
+ - useContext
+ - useMemo
+ - useCallback
