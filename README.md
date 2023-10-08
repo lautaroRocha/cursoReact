@@ -1,14 +1,23 @@
 
-### Componentes
+### Custom Hooks y Mejores
 
-Los componentes son las unidades a partir de las cuáles creamos nuestra interfaz. Son funciones de Javascript que devuelven HTML gracias a usar JSX. Al ser funciones, pueden tomar parámetros, llamados *propiedades* o más normalmente *props*.
+En esta última clase, hablamos de Custom Hooks y otras mejoras que se pueden aplicar al proyecto. También comentamos qué seguir estudiando.
 
-------------
+##### Custom hooks
 
-### En esta clase vamos a ver cómo
+Es una buena práctica retirar la lógica de un componente a un archivo separado. Si esa lógica involucra la gestión de un estado o el uso de hooks, podemos abstraerla en nuestro propio hook personalizado. Leer [la documentación oficial](https://es.react.dev/learn/reusing-logic-with-custom-hooks).
 
-1. Darle estilos a nuestros componentes 
-2. Consumir props
-3. Renderear condicionalmente según props
-4. Hacer que nuestro componente *recuerde* a través del Estado.
+#### Mejoras al proyecto
 
+- Autorización (login)
+- Caché de las peticiones 
+- Paginado para ver más películas
+- Búsqueda de peliculas
+
+#### Qué seguir estudiando
+
+- Hooks (useRef, useContext, useCallback, useMemo)
+- Global State Management (Redux, RTK, Zustand, etc...)
+- UnitTesting (Vitest, RTL)
+- TypeScript
+- React Framework (Next, Remix, Gatsby)
