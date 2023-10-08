@@ -1,0 +1,2 @@
+export const moviesLink = (key) => `https://api.themoviedb.org/3/discover/movie?api_key=${key}&language=es&sort_by=popularity.desc` 
+export const movieLink = (id, key) => `https://api.themoviedb.org/3/movie/${id}?api_key=${key}&language=es`

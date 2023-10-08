@@ -1,7 +1,7 @@
 import style from "./nav.module.css"
 import { Link } from "react-router-dom"
 
-const Nav = () => {
+const Nav = ({favs}) => {
 
     return(
         <header className={style.nav}>
@@ -19,7 +19,7 @@ const Nav = () => {
                     </li>
                     <li>
                         <Link to='/favs'>
-                            Favoritos
+                            Favoritos {favs > 0 && favs}
                         </ Link>
                     </li>
                 </ul>

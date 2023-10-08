@@ -1,0 +1,5 @@
+export { default as Card} from "./MovieCard/MovieCard"
+export { default as Detail} from "./MovieDetail/MovieDetail"
+export { default as Container} from "./MovieContainer/MovieContainer"
+export { default as Nav} from "./Nav/Nav"
+export { default as Welcome} from "./WelcomePage/WelcomePage"

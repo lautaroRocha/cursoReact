@@ -8,11 +8,19 @@ function MovieCard ({movie, isFav, toogleFav}) {
 
     const {title, poster_path, id} = movie
 
+    const limitText = (title) => {
+        if(title.length < 22){
+            return title
+        }else{
+            return title.slice(0, 12)+'...'
+        }
+    }
+
     return(
         <div className={style.card}>
             <Link to={`/movie/${id}`} >
                 <img src={POSTER_PATH + poster_path} alt="poster de la película" />
-                <h2>{title}</h2>
+                <h2>{limitText(title)}</h2>
             </Link>
             <button className={isFav(id) ? '' : style['fav']}
                 onClick={()=>{toogleFav(movie)}}>
