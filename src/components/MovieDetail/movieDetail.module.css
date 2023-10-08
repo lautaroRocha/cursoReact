@@ -1,0 +1,8 @@
+.detail{
+    display: flex;
+}
+
+.detail-text{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,7 +1,10 @@
 import './App.css'
 import {useEffect, useState} from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MovieContainer from "./components/MovieContainer/MovieContainer"
 import MovieCard from "./components/MovieCard/MovieCard"
+import MovieDetail from "./components/MovieDetail/MovieDetail"
+import Nav from './components/Nav/Nav'
 
 
 const ENDPOINT = `https://api.themoviedb.org/3/discover/movie?api_key=89be792ea6306278c870e8ce473ab886&language=es&sort_by=popularity.desc`
@@ -35,15 +38,34 @@ function App() {
 
   return (
     <>
-      <MovieContainer>
-        TENGO {favMovies.length} PELÍCULAS FAVORITAS
-        {
-          !movies.length ? 
-          'Cargando películas...' 
-          : 
-          movies.map( (movie) => <MovieCard movie={movie} isFav={isFav} key={movie.id} toogleFav={toogleFav}/>)
-        }
-      </MovieContainer>
+    <BrowserRouter>
+    <Nav />
+      <Routes>
+        <Route path='/' element={<>Bienvenido a mi app de películas</>}/>
+        <Route path='/movies' element={
+            <MovieContainer>
+            {
+              !movies.length ? 
+              'Cargando películas...' 
+              : 
+              movies.map( (movie) => <MovieCard movie={movie} isFav={isFav} key={movie.id} toogleFav={toogleFav}/>)
+            }
+            </MovieContainer> 
+        }/>
+        <Route path='/favs'element={
+           <MovieContainer>
+           {
+             !movies.length ? 
+             'Cargando películas...' 
+             : 
+             favMovies.map( (movie) => <MovieCard movie={movie} isFav={isFav} key={movie.id} toogleFav={toogleFav}/>)
+           }
+         </MovieContainer> 
+        }/>
+        <Route path='/movie/:id'element={<MovieDetail />}/>
+      </Routes>
+    </BrowserRouter>
+    
     </>
   )
 }
