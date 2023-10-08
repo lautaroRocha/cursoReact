@@ -1,14 +1,37 @@
 
-### Componentes
+### APIS y mapeo de datos
 
-Los componentes son las unidades a partir de las cuáles creamos nuestra interfaz. Son funciones de Javascript que devuelven HTML gracias a usar JSX. Al ser funciones, pueden tomar parámetros, llamados *propiedades* o más normalmente *props*.
+En esta clase vamos a consumir datos de una API y guardarlos en un estado para poder mapear esos datos y mostrarlos al usuario.
 
-------------
+#### La API
 
-### En esta clase vamos a ver cómo
+Estamos trabajando con [TMDB](https://developer.themoviedb.org/docs) para recuperar data de películas. Tenés que hacerte una cuenta para consultar tu api key y lograr hacer consultas. 
 
-1. Darle estilos a nuestros componentes 
-2. Consumir props
-3. Renderear condicionalmente según props
-4. Hacer que nuestro componente *recuerde* a través del Estado.
 
+#### Consumir una API con un efecto
+
+Usamos un efecto para disparar la petición una vez que carga la página. Guardamos el resultado de la petición en nuestro estado
+
+```jsx
+
+const [movies, setMovies] = useState([])
+
+useEffect(()=>{
+    fetch(ENDPOINT)
+        .then(res => res.json())
+        .then(data => setMovies(data))
+        .catch(error => console.error(error))
+}, [])
+
+```
+
+
+#### Crear listas mapeando datos
+
+Cuando  necesitamos renderear muchas veces el mismo componente, o iterar cualquier array mostrando algo en pantalla, usamos el método map. Es importante añadir la propiedad *key*, que React usa para mantener el orden de los elementos.
+
+```jsx
+return(
+    {movies.map( (movie) => <MovieCard movie={movie} key={movie.id} />)}
+)
+```
