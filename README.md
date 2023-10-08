@@ -64,7 +64,7 @@ const Button = ({label}) => <button>{label}</button>
 
 #### Conditional Rendering
 
-Podemos controlar que se renderea dentro de un componente, o que componente renderear, en baso a una condición. 
+Podemos controlar que se renderea dentro de un componente, o que componente renderear, en base a una condición. 
 ```jsx
 
 const StatusLabel = ({status}) => {
